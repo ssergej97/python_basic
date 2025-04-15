@@ -1,15 +1,18 @@
 import string
 
 user_input = input("Ввeдіть слово ")
+
+for i in user_input:
+    if i in string.punctuation:
+        user_input = user_input.replace(i, "")
+
 user_input = user_input.title()
 
-user_input_list = list(user_input)
+for i in user_input:
+    if i == ' ':
+        user_input = user_input.replace(i, "")
 
-for i in user_input_list:
-    if i in string.punctuation:
-        user_input_list.remove(i)
-    elif i == ' ':
-        user_input_list.remove(i)
+user_input_list = list(user_input)
 
 user_input_list.insert(0, "#")
 hashtag = ''.join(user_input_list)
