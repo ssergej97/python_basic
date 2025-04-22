@@ -1,6 +1,6 @@
 import string
 
-# user_input = input("Введіть дві літери через дефіс, наприклад, a-c ")
+user_input = input("Введіть дві літери через дефіс, наприклад, a-c ")
 
 lst = []
 
