@@ -1,4 +1,4 @@
-def popular_words (text, words):
+def popular_words (text: str, words: list) -> dict:
     text_lower = text.lower()
     text_lower_split = text_lower.split()
     numbers_of_words = {word: 0 for word in words}
