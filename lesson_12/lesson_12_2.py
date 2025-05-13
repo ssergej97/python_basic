@@ -1,33 +1,33 @@
 class Item:
 
-    def __init__(self, name, price, description, dimensions):
+    def __init__(self, name: str, price: int, description: str, dimensions: str) -> None:
         self.price = price
         self.description = description
         self.dimensions = dimensions
         self.name = name
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name}, price: {self.price}"
 
 class User:
 
-    def __init__(self, name, surname, numberphone):
+    def __init__(self, name: str, surname: str, numberphone: str) -> None:
         self.name = name
         self.surname = surname
         self.numberphone = numberphone
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} {self.surname}"
 
 class Purchase:
-    def __init__(self, user):
+    def __init__(self, user: User) -> None:
         self.products = {}
         self.user = user
 
-    def add_item(self, item, cnt):
+    def add_item(self, item: Item, cnt: int) -> None:
         self.products[item] = cnt
 
-    def __str__(self):
+    def __str__(self) -> str:
         output = f"User: {str(self.user)}\nItems:\n"
         if not self.products:
             output += " (no items)"
@@ -36,7 +36,7 @@ class Purchase:
                 output += f"{item.name}: {cnt} pcs.\n"
         return output.strip()
 
-    def get_total(self):
+    def get_total(self) -> int:
         current_total = 0
         for item, cnt in self.products.items():
             current_total += item.price * cnt
