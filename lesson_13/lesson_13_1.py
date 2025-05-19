@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class Human:
 
     def __init__(self, gender: str, age: int, first_name: str, last_name: str):
@@ -18,13 +21,25 @@ class Student(Human):
     def __str__(self) -> str:
         return f"Gender is {self.gender}, age is {self.age}, first_name is {self.first_name}, last_name is {self.last_name}, record_book is {self.record_book}"
 
+class GroupLimit(Exception):
+    def __init__(self, group_number: str, max_size: int, text: Optional[str] = None):
+        if text is None:
+            self.text = f"Група {group_number} містить вже максимальну кількість студентів {max_size}"
+        else:
+            self.text = text
+        super().__init__(self.text)
+
 class Group:
+
+    max_students = 10
 
     def __init__(self, number: str):
         self.number = number
         self.group = set()
 
     def add_student(self, student: Student) -> None:
+        if len(self.group) >= self.max_students:
+            raise GroupLimit(self.number, self.max_students)
         self.group.add(student)
 
     def delete_student(self, last_name: str) -> None:
