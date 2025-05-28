@@ -1,6 +1,6 @@
 class Rectangle:
 
-    def __init__(self, width, height):
+    def __init__(self, width: int, height: int) -> None:
         self.width = width
         self.height = height
 
@@ -26,7 +26,7 @@ class Rectangle:
         else:
             return Rectangle(new_rectangle, 1)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Довжина:{self.width}, висота:{self.height}"
 
 
