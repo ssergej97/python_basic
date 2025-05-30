@@ -6,13 +6,13 @@ class Rectangle:
         self.width = width
         self.height = height
 
-    def get_square(self) -> float:
+    def get_square(self) -> int:
         return self.width * self.height
 
-    def __eq__(self, other: object) -> bool:
+    def __eq__(self, other: "Rectangle") -> bool:
         return self.get_square() == other.get_square()
 
-    def __add__(self, other: object) -> "Rectangle":
+    def __add__(self, other: "Rectangle") -> "Rectangle":
         new_rectangle = self.get_square() + other.get_square()
 
         if new_rectangle == 0:
@@ -20,7 +20,7 @@ class Rectangle:
         else:
             return Rectangle(new_rectangle, 1)
 
-    def __mul__(self, n: object) -> "Rectangle":
+    def __mul__(self, n: int) -> "Rectangle":
         new_rectangle = self.get_square() * n
 
         if new_rectangle == 0:
